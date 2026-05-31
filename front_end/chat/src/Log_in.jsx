@@ -1,13 +1,36 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion'; // 1. Import motion
 import Style from './Log_in.module.css';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
+
+// REPLACE the old pageVariants in Log_in.jsx with this:
+const pageVariants = {
+  initial: { opacity: 0, scale: 0.8 },
+  in: { opacity: 1, scale: 1 },
+  out: { opacity: 0, scale: 1.1 },
+};
+
+const pageTransition = {
+  type: "spring",
+  stiffness: 200,
+  damping: 20,
+};
+
 const Log_in = () => {
   const navigate = useNavigate();
   return (
     <>
-      <h1> its log in place</h1>
-
-      <div className={Style.container}>
+      {/* 2. Change div to motion.div and add the animation props */}
+      <motion.div
+        className={Style.container}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <h1 className={Style.title}>Relay</h1>
+        <h2>Login into your relay account</h2>
 
         <div className={Style.inputWrapper}>
           <FaEnvelope className={Style.icon} />
@@ -19,7 +42,9 @@ const Log_in = () => {
           <input type='password' placeholder='Password' className={Style.input} />
         </div>
 
-      </div>
+
+        <button className={Style.button} onClick={() => navigate('/home')}>Login</button>
+      </motion.div>
     </>
   )
 }
