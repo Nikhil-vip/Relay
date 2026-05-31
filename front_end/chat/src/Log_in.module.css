@@ -1,0 +1,26 @@
+.container {
+  height: 70vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+  top: 15vh;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 10px 10px 38px;
+  /* left padding makes room for icon */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 70%;
+  margin: 20px 10%;
+}
