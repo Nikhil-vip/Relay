@@ -3,6 +3,10 @@ import { motion } from 'framer-motion'; // 1. Import motion
 import Style from './Log_in.module.css';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 
+
+const [email, setemail] = useState('');
+const [password, setpassword] = useState('');
+
 // REPLACE the old pageVariants in Log_in.jsx with this:
 const pageVariants = {
   initial: { opacity: 0, scale: 0.8 },
@@ -15,6 +19,8 @@ const pageTransition = {
   stiffness: 200,
   damping: 20,
 };
+
+
 
 const Log_in = () => {
   const navigate = useNavigate();
@@ -34,12 +40,12 @@ const Log_in = () => {
 
         <div className={Style.inputWrapper}>
           <FaEnvelope className={Style.icon} />
-          <input type='text' placeholder='Email' className={Style.input} />
+          <input type='text' placeholder='Email' className={Style.input} onChange={(e) => setemail(e.target.value)} />
         </div>
 
         <div className={Style.inputWrapper}>
           <FaLock className={Style.icon} />
-          <input type='password' placeholder='Password' className={Style.input} />
+          <input type='password' placeholder='Password' className={Style.input} onChange={(e) => setpassword(e.target.value)} />
         </div>
 
 
