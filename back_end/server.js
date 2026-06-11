@@ -1,9 +1,8 @@
 const express = require('express');
-const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const authRotes = require('..routes/auth_routes.js')
+const authRotes = require('./routes/auth_routes.js')
 const app = express();
 
 dotenv.config();
@@ -29,3 +28,4 @@ app.listen(3000, () => {
   console.log("server running on port 3000");
 
 })
+module.exports = app;

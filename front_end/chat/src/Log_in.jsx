@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'; // 1. Import motion
 import Style from './Log_in.module.css';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-
+import Chat_apge from './chat_page.jsx';
 
 const [email, setemail] = useState('');
 const [password, setpassword] = useState('');
@@ -49,7 +50,7 @@ const Log_in = () => {
         </div>
 
 
-        <button className={Style.button} onClick={() => navigate('/home')}>Login</button>
+        <button className={Style.button} onClick={() => navigate('/chat_page')}>Login</button>
       </motion.div>
     </>
   )
