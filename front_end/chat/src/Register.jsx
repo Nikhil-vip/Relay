@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Style from './Register.module.css';
 import { FaUser, FaEnvelope, FaLock, FaArrowRight } from 'react-icons/fa';
+import axios from 'axios';
+
 
 const pageVariants = {
   initial: { opacity: 0, scale: 0.8 },
@@ -18,7 +20,7 @@ const pageTransition = {
 
 const Register = () => {
   const navigate = useNavigate();
-
+  const vite_url = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const [username, setusername] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -31,7 +33,7 @@ const Register = () => {
       return;
     }
 
-    res.post('api/register', { email, password, username });
+    const mypromise = await axios.post(`${vite_url}/api/auth/register`, { email, password, username });
   };
 
   return (
@@ -69,7 +71,7 @@ const Register = () => {
 
         <div className={Style.log_text}>
           <h4>Already have an account?</h4>
-          <h4 className={Style.log_button} onClick={() => navigate('/login')}>
+          <h4 className={Style.log_button} onClick={() => navigate('/Log_in.jsx')}>
             Log in
           </h4>
         </div>

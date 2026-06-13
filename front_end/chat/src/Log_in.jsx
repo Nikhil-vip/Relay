@@ -1,14 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion'; // 1. Import motion
+import { motion } from 'framer-motion';
 import Style from './Log_in.module.css';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-import Chat_apge from './chat_page.jsx';
 
-const [email, setemail] = useState('');
-const [password, setpassword] = useState('');
-
-// REPLACE the old pageVariants in Log_in.jsx with this:
 const pageVariants = {
   initial: { opacity: 0, scale: 0.8 },
   in: { opacity: 1, scale: 1 },
@@ -21,13 +16,14 @@ const pageTransition = {
   damping: 20,
 };
 
-
-
 const Log_in = () => {
+  // ✅ Moved inside the component
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
   const navigate = useNavigate();
+
   return (
     <>
-      {/* 2. Change div to motion.div and add the animation props */}
       <motion.div
         className={Style.container}
         initial="initial"
@@ -49,10 +45,10 @@ const Log_in = () => {
           <input type='password' placeholder='Password' className={Style.input} onChange={(e) => setpassword(e.target.value)} />
         </div>
 
-
         <button className={Style.button} onClick={() => navigate('/chat_page')}>Login</button>
       </motion.div>
     </>
-  )
-}
+  );
+};
+
 export default Log_in;
