@@ -14,7 +14,6 @@ app.use(express.json());
 app.use('/api/auth', authRotes);
 
 
-
 mongoose.connect(process.env.mongo_uri)
 
   .then(() => console.log("connected to db"))
