@@ -35,7 +35,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(`${vite_url}/api/auth/register`, { email, password, username });
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert('Registration successful!');
         navigate('/Chat_page.jsx');
       } else {
