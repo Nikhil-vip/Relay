@@ -45,7 +45,7 @@ const Log_in = () => {
           <input type='password' placeholder='Password' className={Style.input} onChange={(e) => setpassword(e.target.value)} />
         </div>
 
-        <button className={Style.button} onClick={() => navigate('/chat_page')}>Login</button>
+        <button className={Style.button} onClick={() => navigate('/Chat_page.jsx')}>Login</button>
       </motion.div>
     </>
   );
