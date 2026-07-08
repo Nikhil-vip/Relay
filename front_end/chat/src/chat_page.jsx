@@ -9,17 +9,15 @@ const Chat_place = () => {
         <input type="text" placeholder="Search..." className={Style.searchInput} />
         <FaComments className={Style.icon} />
       </form>
+
       <div className={Style.message_box}>
 
-
-        <div className="pic"></div>
-
+        <div className={Style.pic}></div>
 
         <div className={Style.namecont}>
           <div className={Style.name}>Name</div>
           <div className={Style.message}>bekbc</div>
         </div>
-
 
       </div>
     </>
