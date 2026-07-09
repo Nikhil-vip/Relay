@@ -55,6 +55,4 @@ input {
   width: 50px;
   border-radius: 50%;
   background-color: #ccc;
-  background-image: url(/src/assets/images/bear.png);
-  background-size: cover;
 }

@@ -1,6 +1,6 @@
 import Style from './chat_page.module.css';
 import { FaComments } from 'react-icons/fa';
-
+import bear from './assets/pfps/bear.svg';
 const Chat_place = () => {
   return (
     <>
@@ -12,7 +12,9 @@ const Chat_place = () => {
 
       <div className={Style.message_box}>
 
-        <div className={Style.pic}></div>
+        <div className={Style.pic}>
+          <img src={bear} alt="Profile" className={Style.pic} />
+        </div>
 
         <div className={Style.namecont}>
           <div className={Style.name}>Name</div>
