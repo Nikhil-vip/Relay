@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const new_user = async (req, res) => {
   const { username, email, password } = req.body;
+  const pfp = Math.floor(Math.random() * 11) + 1;
 
   try {
     const user_exist = await User.findOne({ email });
@@ -20,10 +21,12 @@ const new_user = async (req, res) => {
 
     const token = jwt.sign({ id: saved_user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
+
     res.status(201).json({
       message: "user created successfully",
       user: saved_user,
-      token
+      token,
+      pfp
     });
   } catch (err) {
     res.status(500).json({ message: "server error" });
@@ -46,7 +49,7 @@ const login_user = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
-    res.status(200).json({ message: "login successful", user, token });
+    res.status(200).json({ message: "login successful", user, token, pfp });
   } catch (err) {
     res.status(500).json({ message: "server error" });
   }

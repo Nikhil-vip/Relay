@@ -25,6 +25,7 @@ const Register = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
+
   const handle_register = async (e) => {
     if (e) e.preventDefault();
 

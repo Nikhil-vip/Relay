@@ -1,7 +1,27 @@
 import Style from './chat_page.module.css';
 import { FaComments } from 'react-icons/fa';
 import bear from './assets/pfps/bear.svg';
-const Chat_place = () => {
+import axios from 'axios';
+
+const Chat_place = async () => {
+  const [pfp_code, setpfp_code] = useState(null);
+  const vite_url = import.meta.env.VITE_API_URL;
+
+
+  const fetchPfp = async () => {
+    try {
+      const pfp = await axios.get(`${vite_url}/api/auth/register`);
+      setpfp_code(data.pfp);
+      console.log(pfp_code);
+    }
+
+    catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
   return (
     <>
       <h1>Chat Pages</h1>
