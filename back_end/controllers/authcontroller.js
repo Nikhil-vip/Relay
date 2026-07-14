@@ -16,7 +16,8 @@ const new_user = async (req, res) => {
     const saved_user = await User.create({
       username,
       email,
-      password
+      password,
+      pfp
     });
 
     const token = jwt.sign({ id: saved_user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
@@ -49,7 +50,7 @@ const login_user = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
-    res.status(200).json({ message: "login successful", user, token, pfp });
+    res.status(200).json({ message: "login successful", user, token, pfp: user.pfp });
   } catch (err) {
     res.status(500).json({ message: "server error" });
   }
