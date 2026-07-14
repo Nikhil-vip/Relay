@@ -34,6 +34,7 @@ const Register = () => {
       return;
     }
 
+
     try {
       const response = await axios.post(`${vite_url}/api/auth/register`, { email, password, username });
       if (response.status === 201) {
@@ -69,19 +70,23 @@ const Register = () => {
             <input type='text' placeholder='Username' className={Style.input} onChange={(e) => setusername(e.target.value)} />
           </div>
 
+
           <div className={Style.inputWrapper}>
             <FaEnvelope className={Style.icon} />
             <input type='email' placeholder='Email' className={Style.input} onChange={(e) => setemail(e.target.value)} />
           </div>
+
 
           <div className={Style.inputWrapper}>
             <FaLock className={Style.icon} />
             <input type='password' placeholder='Password' className={Style.input} onChange={(e) => setpassword(e.target.value)} />
           </div>
 
+
           <button type='submit' className={Style.button}>
             Get Started <FaArrowRight className={Style.buttonIcon} />
           </button>
+
 
           <div className={Style.log_text}>
             <h4>Already have an account?</h4>
